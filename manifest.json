@@ -1,7 +1,7 @@
 {
   "id": "open-in-claude-code",
   "name": "Open in Claude Code",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "minAppVersion": "1.0.0",
   "description": "Quickly open Claude Code in the current note's folder from within Obsidian",
   "author": "Your Name",

@@ -125,48 +125,31 @@
   font-size: 12px;
 }
 
-/* Permissions section */
-.claude-permissions-section {
-  margin: 0;
-  padding: 0;
-}
-
-.claude-permissions-section h4 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: var(--text-accent);
-}
-
-.claude-permissions-section h5 {
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
-
-.claude-tools-permissions {
+/* Tool permissions container */
+.claude-tools-container {
   margin-top: 15px;
 }
 
-.claude-tools-grid {
-  margin-top: 10px;
-}
-
-.claude-tools-grid .setting-item {
+.claude-tools-container .setting-item {
   padding: 8px 10px;
   background-color: var(--background-secondary);
   border-radius: 5px;
   border: 1px solid transparent;
   transition: border-color 0.2s;
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
-.claude-tools-grid .setting-item:hover {
+.claude-tools-container .setting-item:hover {
   border-color: var(--background-modifier-border);
 }
 
-.claude-tools-grid .setting-item-name {
+.claude-tools-container .setting-item-name {
   font-weight: 500;
+  font-size: 13px;
 }
 
-.claude-tools-grid .setting-item-description {
+.claude-tools-container .setting-item-description {
   font-size: 0.85em;
   color: var(--text-muted);
   margin-top: 2px;

@@ -965,6 +965,7 @@ class OpenInClaudeCodeSettingTab extends PluginSettingTab {
         .addOption('custom', 'Custom - Select specific tools')
         .setValue(this.plugin.settings.permissionMode || 'default')
         .onChange(async (value: 'acceptEdits' | 'bypassPermissions' | 'plan' | 'default' | 'custom') => {
+          const previousMode = this.plugin.settings.permissionMode;
           this.plugin.settings.permissionMode = value;
           
           // Update tool permissions based on permission mode
@@ -1002,22 +1003,16 @@ class OpenInClaudeCodeSettingTab extends PluginSettingTab {
           }
           
           await this.plugin.saveSettings();
-          this.display(); // Refresh UI to show/hide tool permissions
+          
+          // Only refresh the UI if switching to/from custom mode
+          if ((previousMode === 'custom' && value !== 'custom') || 
+              (previousMode !== 'custom' && value === 'custom')) {
+            this.display(); // Refresh UI to show/hide tool permissions
+          }
         }));
     
-    // Tool permissions - show inline when custom mode is selected
+    // Tool permissions - show as separate section when custom mode is selected  
     if (this.plugin.settings.permissionMode === 'custom') {
-      const toolsContainer = permissionSetting.settingEl.createDiv('claude-tools-permissions');
-      toolsContainer.style.marginTop = '20px';
-      toolsContainer.style.marginLeft = '0';
-      toolsContainer.style.paddingLeft = '0';
-      
-      toolsContainer.createEl('h5', { text: 'Tool Permissions', cls: 'setting-item-name' });
-      const toolsDesc = toolsContainer.createEl('p', { 
-        cls: 'setting-item-description' 
-      });
-      toolsDesc.innerHTML = 'Select which tools Claude can use without asking:';
-      
       const tools = [
         { id: 'Bash', name: 'Bash', desc: 'Run shell commands' },
         { id: 'Edit', name: 'Edit', desc: 'Edit existing files' },
@@ -1028,15 +1023,15 @@ class OpenInClaudeCodeSettingTab extends PluginSettingTab {
         { id: 'NotebookEdit', name: 'Notebook Edit', desc: 'Edit Jupyter notebooks' }
       ];
       
-      // Create two columns for tools
-      const toolsGrid = toolsContainer.createDiv('claude-tools-grid');
-      toolsGrid.style.display = 'grid';
-      toolsGrid.style.gridTemplateColumns = '1fr 1fr';
-      toolsGrid.style.gap = '10px';
-      toolsGrid.style.marginTop = '10px';
+      // Create a container for the two-column grid
+      const toolsContainer = containerEl.createDiv('claude-tools-container');
+      toolsContainer.style.display = 'grid';
+      toolsContainer.style.gridTemplateColumns = '1fr 1fr';
+      toolsContainer.style.gap = '10px';
+      toolsContainer.style.marginBottom = '20px';
       
       tools.forEach(tool => {
-        const toolSetting = new Setting(toolsGrid)
+        const toolSetting = new Setting(toolsContainer)
           .setName(tool.name)
           .setDesc(tool.desc)
           .addToggle(toggle => {
@@ -1064,7 +1059,6 @@ class OpenInClaudeCodeSettingTab extends PluginSettingTab {
                 await this.plugin.saveSettings();
               });
           });
-        toolSetting.settingEl.style.marginBottom = '10px';
       });
     }
     
