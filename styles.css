@@ -1,0 +1,173 @@
+/* Claude Code Status Styles */
+.claude-code-status {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--background-modifier-form-field);
+}
+
+.claude-code-status h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.claude-path-container {
+  margin: 10px 0;
+}
+
+.claude-path-label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.claude-status-icon-success {
+  color: var(--text-success);
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.claude-status-icon-error {
+  color: var(--text-error);
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.claude-path-display {
+  font-family: var(--font-monospace);
+  font-size: 13px;
+  padding: 8px 12px;
+  background-color: var(--background-secondary);
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  color: var(--text-muted);
+}
+
+.claude-path-display.claude-path-error {
+  border-color: var(--text-error);
+  color: var(--text-error);
+  opacity: 0.8;
+}
+
+.claude-help-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.claude-help-text a {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+.claude-help-text a:hover {
+  text-decoration: underline;
+}
+
+.claude-status-success {
+  color: var(--text-success);
+  font-weight: 500;
+}
+
+.claude-status-error {
+  color: var(--text-error);
+  font-weight: 500;
+}
+
+.claude-code-status a {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+.claude-code-status a:hover {
+  text-decoration: underline;
+}
+
+/* Settings description styling */
+.setting-item-description {
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+.setting-item-description p {
+  margin: 5px 0;
+}
+
+/* Debug information */
+.claude-debug-info {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: var(--background-modifier-form-field);
+  border-radius: 5px;
+}
+
+.claude-debug-info h4 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.claude-debug-info p {
+  margin: 3px 0;
+  font-family: var(--font-monospace);
+}
+
+.debug-success {
+  color: var(--text-success);
+}
+
+.debug-fail {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.debug-info {
+  color: var(--text-muted);
+  font-family: var(--font-monospace);
+  font-size: 12px;
+}
+
+/* Permissions section */
+.claude-permissions-section {
+  margin: 0;
+  padding: 0;
+}
+
+.claude-permissions-section h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--text-accent);
+}
+
+.claude-permissions-section h5 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.claude-tools-permissions {
+  margin-top: 15px;
+}
+
+.claude-tools-grid {
+  margin-top: 10px;
+}
+
+.claude-tools-grid .setting-item {
+  padding: 8px 10px;
+  background-color: var(--background-secondary);
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.claude-tools-grid .setting-item:hover {
+  border-color: var(--background-modifier-border);
+}
+
+.claude-tools-grid .setting-item-name {
+  font-weight: 500;
+}
+
+.claude-tools-grid .setting-item-description {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
